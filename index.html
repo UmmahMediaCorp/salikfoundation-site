@@ -3,394 +3,318 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Salik Foundation — Distributing the Qur'an Worldwide</title>
-  <meta name="description" content="Salik Foundation is a registered Canadian charity that prints and distributes the Qur'an to communities around the world. Sponsor a Qur'an — a sadaqah jariyah. Zakat-eligible, tax receipts issued." />
-  <meta name="theme-color" content="#0F1B2E" />
+  <title>Salik Foundation — Give the Gift of the Qur'an</title>
+  <meta name="description" content="Salik Foundation is a registered Canadian charity that prints and gives the Qur'an — freely — to non-Muslims, new Muslims, and seekers across Canada, the USA, and abroad. Your gift is a sadaqah jariyah. Zakat-eligible · 100% reaches the cause · tax receipts issued." />
+  <meta name="theme-color" content="#1C6FAC" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Salik Foundation — Distributing the Qur'an Worldwide" />
-  <meta property="og:description" content="A registered Canadian charity placing the Qur'an into the hands of those who long for it. Zakat-eligible · tax receipts issued." />
+  <meta property="og:title" content="Salik Foundation — Give the Gift of the Qur'an" />
+  <meta property="og:description" content="Put the Qur'an in hands that have never held it. A registered Canadian charity placing the Word of Allah into the hands of those discovering it — across Canada, the USA, and the world." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/images/poster-light.jpg" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="icon" type="image/png" href="assets/images/salik-icon-sm.png" />
   <link rel="stylesheet" href="css/styles.css" />
 
-  <!-- NGO structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "NGO",
     "name": "Salik Foundation",
     "url": "https://salikfoundation.com",
-    "logo": "assets/images/salik-logo.png",
-    "description": "A registered Canadian charity that prints and distributes the Qur'an to communities around the world.",
+    "description": "A registered Canadian charity that prints and freely distributes the Qur'an to non-Muslims, new Muslims, and seekers across Canada, the USA, and around the world.",
     "email": "info@salikfoundation.com",
     "telephone": "+1-647-977-9901",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "13750 100th Ave, Unit #2010",
-      "addressLocality": "Surrey",
-      "addressRegion": "BC",
-      "postalCode": "V3T 0L3",
-      "addressCountry": "CA"
-    },
+    "address": {"@type": "PostalAddress","streetAddress": "13750 100th Ave, Unit #2010","addressLocality": "Surrey","addressRegion": "BC","postalCode": "V3T 0L3","addressCountry": "CA"},
     "taxID": "777416629RR0001",
-    "potentialAction": {
-      "@type": "DonateAction",
-      "target": "https://www.zeffy.com/en-CA/donation-form/quran-for-all"
-    }
+    "potentialAction": {"@type": "DonateAction","target": "https://www.zeffy.com/en-CA/donation-form/quran-for-all"}
   }
   </script>
 </head>
 <body>
 
-  <!-- ============ PRELOADER ============ -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__inner">
-      <img src="assets/images/salik-logo.png" alt="" class="preloader__logo" />
-      <div class="preloader__bar"><span class="preloader__fill" id="preloaderFill"></span></div>
-    </div>
-  </div>
-
-  <!-- ============ NAV ============ -->
+  <!-- NAV -->
   <header class="nav" id="nav">
-    <div class="nav__inner">
+    <div class="container nav__inner">
       <a href="#top" class="nav__brand" aria-label="Salik Foundation — home">
         <img src="assets/images/salik-icon-sm.png" alt="" class="nav__mark" />
-        <span class="nav__wordmark">Foundation</span>
+        <span class="nav__name">Salik <em>Foundation</em></span>
       </a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="#mission">Mission</a>
-        <a href="#how">How It Works</a>
-        <a href="#give">Ways to Give</a>
-        <a href="#contact">Contact</a>
+        <a href="#opportunity">The opportunity</a>
+        <a href="#reach">Where we reach</a>
+        <a href="#how">How it works</a>
+        <a href="#request">Request a Qur'an</a>
       </nav>
-      <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="nav__cta">
-        <span class="nav__cta-dot" aria-hidden="true"></span>
-        Donate
-      </a>
-      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
+      <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--primary nav__cta">Donate</a>
     </div>
   </header>
 
-  <!-- ============ MOBILE MENU ============ -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <nav class="mobile-menu__links">
-      <a href="#mission">Mission</a>
-      <a href="#how">How It Works</a>
-      <a href="#give">Ways to Give</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="mobile-menu__cta">Donate Now</a>
-    <p class="mobile-menu__meta">Registered Canadian Charity · 777416629RR0001</p>
-  </div>
-
   <main id="top">
 
-    <!-- ============ HERO ============ -->
-    <section class="hero panel" id="hero">
-      <div class="hero__media">
-        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
-               poster="assets/images/poster-hero.jpg">
-          <source src="assets/videos/hero-cinematic.mp4" type="video/mp4" />
-        </video>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__media" aria-hidden="true">
+        <img src="assets/images/hero-quran-hands.jpg" alt="" fetchpriority="high" />
         <div class="hero__scrim"></div>
-        <div class="hero__grain" aria-hidden="true"></div>
       </div>
-
-      <div class="hero__content">
-        <p class="kicker hero__kicker">Registered Canadian Charity <span>·</span> Qur'an Distribution <span>·</span> Worldwide</p>
-
-        <h1 class="hero__title">
-          <span class="line"><span class="line__in">Spreading the</span></span>
-          <span class="line"><span class="line__in"><em>Word of Allah</em></span></span>
-          <span class="line"><span class="line__in">to the world</span></span>
+      <div class="container hero__inner">
+        <p class="eyebrow reveal">Bismillāhir-Raḥmānir-Raḥīm · A Registered Canadian Charity</p>
+        <h1 class="hero__title reveal">
+          Put the Qur'an in hands that have <em>never held it.</em>
         </h1>
-
-        <p class="hero__sub reveal">Salik Foundation prints and distributes the Qur'an — placing the Book of Allah into the hands of those who long for it, in communities across the world.</p>
-
-        <div class="hero__actions reveal">
-          <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--gold magnetic">Donate Now</a>
-          <a href="#how" class="btn btn--ghost magnetic">How It Works</a>
+        <p class="hero__sub reveal">Salik Foundation prints and gives the Qur'an — freely — to non-Muslims, new Muslims, and seekers across Canada, the United States, and beyond. Your gift may be the very first time someone holds the Word of Allah: a <strong>sadaqah jariyah</strong> that flows with every letter they recite.</p>
+        <div class="hero__cta reveal">
+          <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Give a Qur'an</a>
+          <a href="#request" class="btn btn--glass btn--lg">Request a free Qur'an</a>
         </div>
-      </div>
-
-      <div class="hero__foot">
-        <div class="hero__tagline">
-          <span class="hero__tagline-main">Guided by the Qur'an.</span>
-          <span class="hero__tagline-meta">Serving humanity · Zakat-eligible</span>
-        </div>
-        <div class="hero__scroll" aria-hidden="true">
-          <span>Scroll</span>
-          <span class="hero__scroll-line"></span>
-        </div>
+        <ul class="trustbar reveal">
+          <li><span>✓</span> Zakat-eligible</li>
+          <li><span>✓</span> 100% reaches the cause</li>
+          <li><span>✓</span> Canadian tax receipts</li>
+        </ul>
       </div>
     </section>
 
-    <!-- ============ MISSION (story-style) ============ -->
-    <section class="story panel" id="mission">
-      <div class="story__bg">
-        <video class="ambient-video" data-src="assets/videos/ambient-dawn.mp4" muted loop playsinline preload="none"
-               poster="assets/images/poster-dawn.jpg"></video>
-        <div class="story__veil"></div>
-      </div>
-
-      <div class="container story__content">
-        <p class="kicker reveal">Our Mission</p>
-        <blockquote class="story__quote">
-          <span class="reveal-stagger">To place the Qur'an</span>
-          <span class="reveal-stagger">in every willing <em>hand.</em></span>
-        </blockquote>
-        <p class="story__copy reveal">Salik Foundation exists to spread the timeless message of the Qur'an. We print and distribute the Book of Allah — freely, faithfully, and worldwide — so that no community is left without the light of revelation.</p>
-
-        <div class="story__stats">
-          <div class="stat reveal-stagger"><span class="stat__num">100%</span><span class="stat__label">Reaches the cause</span></div>
-          <div class="stat reveal-stagger"><span class="stat__num">Zakat</span><span class="stat__label">Eligible</span></div>
-          <div class="stat reveal-stagger"><span class="stat__num">CRA</span><span class="stat__label">Registered charity</span></div>
-          <div class="stat reveal-stagger"><span class="stat__num">Worldwide</span><span class="stat__label">Reach</span></div>
+    <!-- THE OPPORTUNITY -->
+    <section class="opp" id="opportunity">
+      <div class="container opp__grid">
+        <div class="opp__copy">
+          <p class="kicker reveal">The opportunity</p>
+          <h2 class="opp__head reveal">Few are chosen to carry the Qur'an to those who have never met it. <em>Today, you can be one of them.</em></h2>
+          <p class="opp__body reveal">When you place a Qur'an in the hands of someone discovering Islam, every verse they read, every prayer it inspires, every heart it softens — flows back to you, by the mercy of Allah. The reward does not end when you give. <strong>It begins.</strong></p>
+          <p class="opp__body reveal">The Prophet ﷺ said: <em>"Whoever guides someone to goodness will have a reward like the one who did it."</em> There may be no greater good to guide a soul toward than the Book of their Lord.</p>
         </div>
+        <figure class="opp__media reveal">
+          <img src="assets/images/light-rehal.jpg" alt="An open Qur'an on a wooden stand, lit by a soft beam of light." loading="lazy" />
+          <figcaption class="ayah">
+            <span class="ayah__ar" lang="ar" dir="rtl">ٱدْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِٱلْحِكْمَةِ</span>
+            <span class="ayah__en">"Invite to the way of your Lord with wisdom and beautiful preaching."</span>
+            <span class="ayah__ref">— Sūrah an-Naḥl 16:125</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- ============ HOW IT WORKS (pillars + video window) ============ -->
-    <section class="difference panel" id="how">
-      <div class="difference__bg">
-        <video class="ambient-video" data-src="assets/videos/ambient-prayer.mp4" muted loop playsinline preload="none"
-               poster="assets/images/poster-prayer.jpg"></video>
-        <div class="difference__veil"></div>
-      </div>
-
-      <div class="container difference__grid">
-        <div class="difference__text">
-          <p class="kicker reveal">How It Works</p>
-          <h2 class="section-title reveal">From the press to their <em>hands.</em></h2>
-
-          <div class="pillars">
-            <article class="pillar reveal-stagger">
-              <span class="pillar__num">01</span>
-              <h3 class="pillar__title">We Print</h3>
-              <p class="pillar__copy">Quality mushafs of the Qur'an, produced with care and reverence.</p>
-            </article>
-            <article class="pillar reveal-stagger">
-              <span class="pillar__num">02</span>
-              <h3 class="pillar__title">We Ship</h3>
-              <p class="pillar__copy">Delivered to communities, masājid, and students of the Qur'an worldwide.</p>
-            </article>
-            <article class="pillar reveal-stagger">
-              <span class="pillar__num">03</span>
-              <h3 class="pillar__title">We Reach</h3>
-              <p class="pillar__copy">Prioritising places where the Qur'an is scarce, and hearts that long for it.</p>
-            </article>
-            <article class="pillar reveal-stagger">
-              <span class="pillar__num">04</span>
-              <h3 class="pillar__title">Sadaqah Jariyah</h3>
-              <p class="pillar__copy">Every Qur'an read is an ongoing reward — by the will of Allah.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="difference__window reveal">
-          <video class="ambient-video" data-src="assets/videos/ambient-light.mp4" muted loop playsinline preload="none"
-                 poster="assets/images/poster-light.jpg"></video>
-          <div class="difference__windowscrim"></div>
-          <span class="difference__windowlabel"><i aria-hidden="true"></i>Spreading the light</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ WAYS TO GIVE (carousel cards) ============ -->
-    <section class="inventory panel" id="give">
-      <div class="inventory__bg">
-        <video class="ambient-video" data-src="assets/videos/ambient-prayer.mp4" muted loop playsinline preload="none"
-               poster="assets/images/poster-prayer.jpg"></video>
-        <div class="inventory__veil"></div>
-      </div>
+    <!-- WHERE WE REACH -->
+    <section class="reach" id="reach">
       <div class="container">
-        <header class="section-head section-head--row">
-          <div>
-            <p class="kicker reveal">Ways to Give</p>
-            <h2 class="section-title reveal">Give the gift of the <em>Qur'an.</em></h2>
-          </div>
-          <p class="inventory__note reveal">100% reaches the cause — Zeffy charges no platform fees.</p>
+        <header class="section-head section-head--center reveal">
+          <p class="kicker kicker--center">Where we reach</p>
+          <h2 class="section-title">From Canada to the ends of the earth.</h2>
+          <p class="section-note section-note--center">Printed in Canada. Delivered freely — to seekers, students, libraries, prisons, da'wah tables and homes — wherever a heart is ready for the Word of Allah.</p>
         </header>
 
-        <div class="invcarousel reveal">
-          <div class="invtrack" id="invTrack">
-
-            <article class="invcard">
-              <img src="assets/images/poster-light.jpg" alt="" loading="lazy" />
-              <div class="invcard__scrim"></div><span class="invcard__badge">Sadaqah</span>
-              <div class="invcard__info">
-                <h3 class="invcard__title">Gift a Qur'an</h3>
-                <p class="invcard__specs">Place the Book of Allah in a waiting hand.</p>
-                <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="invcard__cta">Give now <i aria-hidden="true">→</i></a>
-              </div>
-            </article>
-
-            <article class="invcard">
-              <img src="assets/images/poster-dawn.jpg" alt="" loading="lazy" />
-              <div class="invcard__scrim"></div><span class="invcard__badge">Community</span>
-              <div class="invcard__info">
-                <h3 class="invcard__title">Gift Ten</h3>
-                <p class="invcard__specs">Ten mushafs for a class, a circle, a community.</p>
-                <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="invcard__cta">Give now <i aria-hidden="true">→</i></a>
-              </div>
-            </article>
-
-            <article class="invcard">
-              <img src="assets/images/poster-prayer.jpg" alt="" loading="lazy" />
-              <div class="invcard__scrim"></div><span class="invcard__badge">Masjid</span>
-              <div class="invcard__info">
-                <h3 class="invcard__title">Equip a Masjid</h3>
-                <p class="invcard__specs">Stock a masjid or madrasah with copies of the Qur'an.</p>
-                <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="invcard__cta">Give now <i aria-hidden="true">→</i></a>
-              </div>
-            </article>
-
-            <article class="invcard">
-              <img src="assets/images/poster-journey.jpg" alt="" loading="lazy" />
-              <div class="invcard__scrim"></div><span class="invcard__badge">Zakat-eligible</span>
-              <div class="invcard__info">
-                <h3 class="invcard__title">Sadaqah Jariyah</h3>
-                <p class="invcard__specs">An ongoing charity that flows on while it's read.</p>
-                <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="invcard__cta">Give now <i aria-hidden="true">→</i></a>
-              </div>
-            </article>
-
-          </div>
-          <div class="invcarousel__foot">
-            <span class="invcarousel__hint">Drag / swipe to explore →</span>
-            <div class="invcarousel__arrows">
-              <button class="invarrow" id="invPrev" aria-label="Previous">&lsaquo;</button>
-              <button class="invarrow" id="invNext" aria-label="More">&rsaquo;</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ LIGHT BAND (showcase) ============ -->
-    <section class="showcase panel" id="showcase">
-      <div class="showcase__bg">
-        <video class="ambient-video" data-src="assets/videos/ambient-light.mp4" muted loop playsinline preload="none"
-               poster="assets/images/poster-light.jpg"></video>
-        <div class="showcase__veil"></div>
-      </div>
-      <div class="container">
-        <p class="kicker showcase__kicker reveal">An ongoing charity</p>
-        <h2 class="showcase__title reveal">Every Qur'an is a <em>sadaqah jariyah.</em></h2>
-        <p class="showcase__sub reveal">The reward of distributing the Qur'an flows on with every letter recited. Carry the Word of Allah forward today.</p>
-        <div class="showcase__actions reveal">
-          <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--gold magnetic">Donate Now</a>
-          <a href="#how" class="btn btn--ghost magnetic">How It Works</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT (visit-style) ============ -->
-    <section class="visit panel" id="contact">
-      <div class="visit__bg">
-        <video class="ambient-video" data-src="assets/videos/ambient-journey.mp4" muted loop playsinline preload="none"
-               poster="assets/images/poster-journey.jpg"></video>
-        <div class="visit__veil"></div>
-      </div>
-
-      <div class="container visit__grid">
-        <div class="visit__intro">
-          <p class="kicker reveal">Get in Touch</p>
-          <h2 class="visit__title reveal">We'd love to <em>hear from you.</em></h2>
-          <p class="visit__copy reveal">Questions about our work, partnering with us, or how your support reaches the world? Reach out — and may Allah reward your generosity.</p>
-
-          <ul class="visit__details">
-            <li class="reveal-stagger">
-              <span class="visit__label">Email</span>
-              <a href="mailto:info@salikfoundation.com">info@salikfoundation.com</a>
-            </li>
-            <li class="reveal-stagger">
-              <span class="visit__label">Phone</span>
-              <a href="tel:+16479779901">+1 (647) 977-9901</a>
-            </li>
-            <li class="reveal-stagger">
-              <span class="visit__label">Address</span>
-              <a href="https://maps.google.com/?q=13750+100th+Ave+Unit+2010+Surrey+BC+V3T+0L3" target="_blank" rel="noopener">13750 100th Ave, Unit #2010<br />Surrey, BC, V3T 0L3</a>
-            </li>
-            <li class="reveal-stagger">
-              <span class="visit__label">Charity Reg.</span>
-              <span>777416629RR0001 · Tax receipts issued</span>
-            </li>
+        <div class="reach__map reveal" aria-hidden="true">
+          <div class="reach__globe"></div>
+          <ul class="reach__pins">
+            <li class="pin pin--ca"><span></span></li>
+            <li class="pin pin--us"><span></span></li>
+            <li class="pin pin--uk"><span></span></li>
+            <li class="pin pin--af"><span></span></li>
+            <li class="pin pin--me"><span></span></li>
+            <li class="pin pin--sa"><span></span></li>
           </ul>
         </div>
 
-        <form class="visit__form reveal" id="bookForm" novalidate>
-          <div class="field">
-            <label for="f-name">Name</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+        <ul class="reach__regions reveal">
+          <li><strong>Canada</strong><span>Coast to coast</span></li>
+          <li><strong>United States</strong><span>From every state</span></li>
+          <li><strong>&amp; Beyond</strong><span>Wherever needed</span></li>
+        </ul>
+
+        <div class="stats reveal">
+          <!-- AHMED: if Salik has a real running total, swap the first stat for e.g.
+               <span class="stat__num" data-to="25000" data-suffix="+">0</span> + label "Qur'ans gifted & counting" -->
+          <div class="stat reveal-stagger"><span class="stat__num" data-to="100" data-suffix="%">0</span><span class="stat__label">Reaches the cause</span></div>
+          <div class="stat reveal-stagger"><span class="stat__num">$0</span><span class="stat__label">Cost to every receiver</span></div>
+          <div class="stat reveal-stagger"><span class="stat__num">Zakat</span><span class="stat__label">Eligible &amp; accepted</span></div>
+          <div class="stat reveal-stagger"><span class="stat__num">∞</span><span class="stat__label">The reward of sadaqah jariyah</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker">How your gift works</p>
+          <h2 class="section-title">From the press to their hands.</h2>
+        </header>
+        <div class="steps">
+          <article class="step reveal-stagger">
+            <span class="step__icon" aria-hidden="true">١</span>
+            <h3>We print</h3>
+            <p>Quality mushafs with a clear, trusted translation — produced with care and reverence.</p>
+          </article>
+          <article class="step reveal-stagger">
+            <span class="step__icon" aria-hidden="true">٢</span>
+            <h3>We deliver — free</h3>
+            <p>Placed into the hands of seekers, new Muslims, schools and communities across Canada, the USA and abroad. The receiver never pays.</p>
+          </article>
+          <article class="step reveal-stagger">
+            <span class="step__icon" aria-hidden="true">٣</span>
+            <h3>They read</h3>
+            <p>For many, the first time they hold the Word of Allah. A door opens — and your reward begins to flow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAYS TO GIVE -->
+    <section class="give" id="give">
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <p class="kicker kicker--center">Be part of it</p>
+          <h2 class="section-title">Choose how many hearts you reach.</h2>
+          <p class="section-note section-note--center">100% of your gift reaches the cause — our donation platform charges no fees. Give once, or monthly as a flowing charity.</p>
+        </header>
+        <div class="cards">
+          <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="card reveal-stagger">
+            <span class="card__amount">$10</span>
+            <h3>Gift one Qur'an</h3>
+            <p>Place the Book of Allah into one waiting hand.</p>
+            <span class="card__cta">Give one →</span>
+          </a>
+          <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="card reveal-stagger">
+            <span class="card__amount">$100</span>
+            <h3>Gift ten</h3>
+            <p>Ten copies for a class, a circle, a da'wah table.</p>
+            <span class="card__cta">Give ten →</span>
+          </a>
+          <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="card card--accent reveal-stagger">
+            <span class="card__amount">$500</span>
+            <span class="card__tag">Most loved</span>
+            <h3>Reach a community</h3>
+            <p>Fifty Qur'ans for a school, masjid, library or prison.</p>
+            <span class="card__cta">Reach fifty →</span>
+          </a>
+          <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="card reveal-stagger">
+            <span class="card__amount">You choose</span>
+            <h3>Give your amount</h3>
+            <p>Any gift — one-time or monthly — carries the Qur'an forward.</p>
+            <span class="card__cta">Choose amount →</span>
+          </a>
+        </div>
+        <p class="give__fine reveal">Zakat-eligible · Sadaqah &amp; Sadaqah Jariyah · Canadian tax receipts issued for every gift.</p>
+      </div>
+    </section>
+
+    <!-- REQUEST A FREE QUR'AN -->
+    <section class="request" id="request">
+      <div class="container request__grid">
+        <div class="request__intro reveal">
+          <figure class="request__media">
+            <img src="assets/images/free-quran-gift.jpg" alt="A beautifully bound Qur'an tied with a gold ribbon, ready to be sent." loading="lazy" />
+          </figure>
+          <p class="kicker">Curious about Islam?</p>
+          <h2 class="request__head">Begin with the Qur'an — <em>on us.</em></h2>
+          <p class="request__body">We'll mail you a free copy of the Qur'an with a clear English translation. No cost. No obligation. No one will pressure you — just the Book, and your own heart. Whether you're exploring, returning, or simply curious, it would be our honour to send it to you.</p>
+          <p class="request__alt">Prefer to talk to someone first? Email <a href="mailto:info@salikfoundation.com">info@salikfoundation.com</a>.</p>
+        </div>
+
+        <div class="request__panel reveal">
+          <form class="reqform" id="reqform" novalidate>
+            <h3 class="reqform__title">Request your free Qur'an</h3>
+            <div class="field">
+              <label for="rq-name">Full name</label>
+              <input id="rq-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="rq-email">Email</label>
+              <input id="rq-email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
+            </div>
+            <div class="field">
+              <label for="rq-address">Mailing address</label>
+              <input id="rq-address" name="address" type="text" autocomplete="street-address" required placeholder="Street address" />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="rq-city">City</label>
+                <input id="rq-city" name="city" type="text" autocomplete="address-level2" required placeholder="City" />
+              </div>
+              <div class="field">
+                <label for="rq-region">Province / State</label>
+                <input id="rq-region" name="region" type="text" autocomplete="address-level1" required placeholder="e.g. Alberta" />
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="rq-postal">Postal / ZIP</label>
+                <input id="rq-postal" name="postal" type="text" autocomplete="postal-code" required placeholder="T5J 0N3" />
+              </div>
+              <div class="field">
+                <label for="rq-country">Country</label>
+                <input id="rq-country" name="country" type="text" autocomplete="country-name" required placeholder="Canada" value="Canada" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="rq-note">Anything you'd like us to know? <span class="optional">(optional)</span></label>
+              <textarea id="rq-note" name="note" rows="2" placeholder="A question, a language preference, a du'a…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block btn--lg">Send me a Qur'an</button>
+            <p class="reqform__fine">By requesting, you agree we may contact you about your Qur'an. We will never sell your details.</p>
+          </form>
+
+          <div class="reqdone" id="reqdone" hidden>
+            <div class="reqdone__mark" aria-hidden="true">✦</div>
+            <h3>In shaa Allah, it's on its way.</h3>
+            <p>Thank you — we've received your request. A copy of the Qur'an will be sent to you, and someone from Salik Foundation may reach out to confirm your details. May Allah open your heart to its light.</p>
+            <a href="#top" class="btn btn--glass">Back to top</a>
           </div>
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
-          </div>
-          <div class="field">
-            <label for="f-topic">I'm reaching out about</label>
-            <select id="f-topic" name="topic">
-              <option value="Sponsoring Qur'ans">Sponsoring Qur'ans</option>
-              <option value="The Qur'an Project">The Qur'an Project</option>
-              <option value="Zakat &amp; Sadaqah">Zakat &amp; Sadaqah</option>
-              <option value="Partnership / volunteering">Partnership / volunteering</option>
-              <option value="Something else">Something else</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-msg">Message <span>(optional)</span></label>
-            <textarea id="f-msg" name="message" rows="2" placeholder="How can we help?"></textarea>
-          </div>
-          <button type="submit" class="btn btn--gold btn--block magnetic">Send message</button>
-          <p class="visit__formnote" id="formNote" role="status" aria-live="polite"></p>
-        </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="finalcta">
+      <div class="container finalcta__inner reveal">
+        <h2>Every Qur'an you give is a <em>sadaqah jariyah.</em></h2>
+        <p>The reward keeps flowing with every letter recited — long after today. Carry the Word of Allah to someone who has never met it.</p>
+        <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--white btn--lg">Give a Qur'an today</a>
+        <p class="finalcta__fine">Zakat-eligible · 100% reaches the cause · Canadian tax receipts issued</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact__grid">
+        <div class="reveal">
+          <p class="kicker">Get in touch</p>
+          <h2 class="section-title">We'd love to hear from you.</h2>
+          <p class="contact__copy">Questions about our work, partnering with us, or how your support reaches the world? Reach out — and may Allah reward your generosity.</p>
+        </div>
+        <ul class="contact__details reveal">
+          <li><span class="contact__label">Email</span><a href="mailto:info@salikfoundation.com">info@salikfoundation.com</a></li>
+          <li><span class="contact__label">Phone</span><a href="tel:+16479779901">+1 (647) 977-9901</a></li>
+          <li><span class="contact__label">Address</span><span>13750 100th Ave, Unit #2010<br />Surrey, BC, V3T 0L3</span></li>
+          <li><span class="contact__label">Charity Reg.</span><span>777416629RR0001 · Tax receipts issued</span></li>
+        </ul>
       </div>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <img src="assets/images/salik-logo.png" alt="Salik Foundation" class="footer__logo" />
-        <p>Guided by the Qur'an. Serving humanity. A registered Canadian charity printing and distributing the Qur'an to communities worldwide.</p>
+        <img src="assets/images/salik-icon-sm.png" alt="" class="footer__mark" />
+        <p>Guided by the Qur'an. Serving humanity. A registered Canadian charity printing and freely distributing the Qur'an to those discovering it — across Canada, the USA, and the world.</p>
       </div>
-      <div class="footer__col">
-        <span class="footer__h">Explore</span>
-        <a href="#mission">Mission</a>
-        <a href="#how">How It Works</a>
-        <a href="#give">Ways to Give</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer__col">
-        <span class="footer__h">Reach Us</span>
-        <a href="mailto:info@salikfoundation.com">info@salikfoundation.com</a>
-        <a href="tel:+16479779901">+1 (647) 977-9901</a>
-        <a href="https://maps.google.com/?q=13750+100th+Ave+Unit+2010+Surrey+BC+V3T+0L3" target="_blank" rel="noopener">Surrey, BC, Canada</a>
-        <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="footer__donate">Donate →</a>
-      </div>
+      <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--primary">Donate</a>
     </div>
-    <div class="footer__bar">
+    <div class="container footer__bar">
       <p>© 2026 Salik Foundation · Registered Canadian Charity 777416629RR0001</p>
-      <p class="footer__credit">Crafted by <a href="https://ummahtechnologies.co" target="_blank" rel="noopener">Ummah Technologies</a></p>
+      <p class="footer__credit">Crafted by <a href="https://ummahtech.ai" target="_blank" rel="noopener">Ummah Technologies</a></p>
     </div>
   </footer>
 
-  <!-- ============ SCRIPTS ============ -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- sticky mobile donate -->
+  <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="dock-cta">Give a Qur'an</a>
+
   <script src="js/main.js"></script>
 </body>
 </html>
