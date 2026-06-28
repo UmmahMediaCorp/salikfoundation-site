@@ -129,12 +129,18 @@ html.lenis,html.lenis body{ height:auto; }
 .trustbar{ display:flex; gap:1.6rem; flex-wrap:wrap; list-style:none; }
 .trustbar li{ display:flex; align-items:center; gap:0.5rem; font-size:0.92rem; font-weight:600; color:rgba(255,255,255,0.92); text-shadow:0 1px 10px rgba(8,22,36,0.7); }
 .trustbar span{ display:grid; place-items:center; width:21px; height:21px; border-radius:50%; background:var(--gold); color:#1a1304; font-size:0.7rem; font-weight:800; }
+.hero__scroll{ position:absolute; left:50%; bottom:1.5rem; transform:translateX(-50%); width:26px; height:42px; border:2px solid rgba(255,255,255,0.45); border-radius:14px; display:grid; justify-items:center; padding-top:7px; z-index:2; }
+.hero__scroll span{ width:4px; height:8px; border-radius:2px; background:rgba(255,255,255,0.85); animation:scrollDot 1.9s ease-in-out infinite; }
+@keyframes scrollDot{ 0%{ transform:translateY(0); opacity:1; } 55%{ transform:translateY(13px); opacity:0; } 56%{ opacity:0; } 100%{ transform:translateY(0); opacity:1; } }
+@media (max-width:900px){ .hero__scroll{ display:none; } }
+@media (prefers-reduced-motion:reduce){ .hero__scroll span{ animation:none; } }
 
 /* ---------- MISSION ---------- */
 .mission{ padding-block:clamp(3.5rem,8vw,6rem); }
 .mission__inner{ max-width:52rem; margin-inline:auto; text-align:center; }
 .mission__quote{ font-family:var(--font-accent); font-weight:500; font-size:clamp(1.7rem,3.5vw,2.7rem); line-height:1.18; letter-spacing:-0.01em; margin-bottom:1.4rem; }
 .mission__quote em{ color:var(--blue-deep); }
+.mission__quote::after{ content:""; display:block; width:54px; height:3px; border-radius:3px; background:var(--gold); margin:1.6rem auto 0; }
 .mission__copy{ color:var(--ink-soft); font-size:1.08rem; max-width:54ch; margin-inline:auto; }
 
 /* ---------- HOW IT WORKS (alternating rows) ---------- */
