@@ -143,7 +143,17 @@ html.lenis,html.lenis body{ height:auto; }
 .row--rev .frame{ order:2; }
 .row__num{ font-family:var(--font-accent); font-weight:500; font-size:2.4rem; line-height:1; color:var(--gold); margin-bottom:0.6rem; }
 .row__title{ font-family:var(--font-accent); font-weight:500; font-size:clamp(1.6rem,3vw,2.3rem); line-height:1.1; letter-spacing:-0.01em; margin-bottom:0.9rem; }
-.row__text{ color:var(--ink-soft); font-size:1.06rem; max-width:46ch; margin-bottom:1.6rem; }
+.row__text{ color:var(--ink-soft); font-size:1.06rem; max-width:46ch; }
+.row__num{ font-size:clamp(2.6rem,4vw,3.4rem); margin-bottom:0.15rem; }
+.row__kicker{ font-size:0.74rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:0.8rem; }
+
+/* ---------- CTA band ---------- */
+.ctaband{ padding-block:clamp(3rem,6vw,4.5rem); }
+.ctaband__inner{ position:relative; overflow:hidden; background:linear-gradient(135deg, var(--blue-deep), var(--navy)); border-radius:var(--r-lg); padding:clamp(2.4rem,5vw,4rem); text-align:center; color:#fff; box-shadow:0 44px 90px -48px rgba(14,42,64,0.72); }
+.ctaband__inner::before{ content:""; position:absolute; top:-55%; left:50%; width:55%; aspect-ratio:1; transform:translateX(-50%); background:radial-gradient(circle, rgba(201,169,97,0.30), transparent 65%); pointer-events:none; }
+.ctaband__title{ position:relative; font-family:var(--font-accent); font-weight:500; font-size:clamp(1.7rem,3.6vw,2.7rem); line-height:1.12; letter-spacing:-0.01em; margin:0 auto 1.6rem; max-width:22ch; }
+.ctaband__title em{ color:var(--gold-soft); }
+.ctaband__cta{ position:relative; display:flex; gap:0.9rem; justify-content:center; flex-wrap:wrap; }
 
 /* ---------- THE OPPORTUNITY ---------- */
 .opp{ padding-block:clamp(3.8rem,8vw,6.5rem); }
@@ -253,7 +263,8 @@ html.lenis,html.lenis body{ height:auto; }
 .footer__credit a{ color:var(--gold-soft); font-weight:600; }
 
 /* ---------- sticky mobile dock ---------- */
-.dock-cta{ position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:90; display:none; text-align:center; background:linear-gradient(180deg, var(--blue), var(--blue-deep)); color:#fff; font-weight:700; padding:1rem; border-radius:100px; box-shadow:0 16px 32px -12px rgba(14,42,64,0.7); }
+.dock-cta{ position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:90; display:none; text-align:center; background:linear-gradient(180deg, var(--blue), var(--blue-deep)); color:#fff; font-weight:700; padding:1rem; border-radius:100px; box-shadow:0 16px 32px -12px rgba(14,42,64,0.7); transition:transform .35s var(--ease), opacity .35s; }
+.dock-cta--hidden{ transform:translateY(165%); opacity:0; pointer-events:none; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
@@ -278,6 +289,7 @@ html.lenis,html.lenis body{ height:auto; }
   .nav__cta{ display:none; }
   .dock-cta{ display:block; }
   body{ padding-bottom:5rem; }
+  body.smart-dock{ padding-bottom:0; }
   .footer__inner{ justify-content:flex-start; }
   .reach__regions{ gap:1.4rem 2rem; }
 }

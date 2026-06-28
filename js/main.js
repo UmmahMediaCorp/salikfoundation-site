@@ -62,6 +62,7 @@
   var lenis = null;
   if (window.Lenis) {
     lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    window.__lenis = lenis;
     lenis.on("scroll", function () { ScrollTrigger.update(); setNav(lenis.actualScroll || window.scrollY); });
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
@@ -128,6 +129,39 @@
       }
     });
   });
+
+  // Smart mobile donate dock: hide while reading down, reveal on scroll-up / idle,
+  // and disappear entirely inside the donate sections (no content overlap).
+  var dock = document.querySelector(".dock-cta");
+  if (dock) {
+    document.body.classList.add("smart-dock");
+    var heroEl = document.querySelector(".hero");
+    var heroH = heroEl ? heroEl.offsetHeight : 600;
+    var lastY = 0, zoneCount = 0;
+    function refreshDock(dir) {
+      var y = (lenis && lenis.actualScroll) || window.scrollY;
+      // Hidden in the hero and inside donate sections; otherwise reveal only on scroll-up.
+      var hide = y < heroH * 0.65 || zoneCount > 0 || dir === "down";
+      dock.classList.toggle("dock-cta--hidden", hide);
+    }
+    var zones = document.querySelectorAll(".give, .request, .finalcta, .footer");
+    if ("IntersectionObserver" in window && zones.length) {
+      var zo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { zoneCount += e.isIntersecting ? 1 : -1; });
+        if (zoneCount < 0) zoneCount = 0;
+        refreshDock("idle");
+      }, { threshold: 0 });
+      zones.forEach(function (z) { zo.observe(z); });
+    }
+    function onDockScroll() {
+      var y = (lenis && lenis.actualScroll) || window.scrollY;
+      var dir = y > lastY + 2 ? "down" : (y < lastY - 2 ? "up" : "idle");
+      if (dir !== "idle") { lastY = y; refreshDock(dir); }
+    }
+    if (lenis) lenis.on("scroll", onDockScroll);
+    else window.addEventListener("scroll", onDockScroll, { passive: true });
+    refreshDock("idle");
+  }
 
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });
 
