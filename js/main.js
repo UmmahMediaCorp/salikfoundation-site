@@ -1,5 +1,5 @@
-/* Salik Foundation — cinematic Qur'an-distribution site
-   Lenis smooth scroll + GSAP ScrollTrigger (parallax, reveals, count-ups).
+/* Salik Foundation — editorial Qur'an-distribution site
+   Lenis smooth scroll + GSAP ScrollTrigger (reveals, framed-image scale-in, count-ups).
    Degrades gracefully: reduced-motion or missing libs => everything visible. */
 (function () {
   "use strict";
@@ -23,7 +23,7 @@
     document.querySelectorAll(".stat__num[data-to]").forEach(countUpInstant);
   }
 
-  /* ---------- Request-a-Qur'an form (works in every path) ---------- */
+  /* ---------- Request-a-Qur'an form (every path) ---------- */
   function initForm() {
     var form = document.getElementById("reqform");
     var done = document.getElementById("reqdone");
@@ -47,7 +47,7 @@
     });
   }
 
-  /* ---------- Fallback path: no motion / no GSAP ---------- */
+  /* ---------- Fallback: no motion / no GSAP ---------- */
   if (reduce || !window.gsap) {
     showAll();
     setNav(window.scrollY);
@@ -59,7 +59,6 @@
   /* ---------- Animated path ---------- */
   gsap.registerPlugin(ScrollTrigger);
 
-  // Lenis smooth scroll (optional — native scroll if unavailable)
   var lenis = null;
   if (window.Lenis) {
     lenis = new Lenis({ duration: 1.1, smoothWheel: true });
@@ -71,7 +70,7 @@
   }
   setNav(window.scrollY);
 
-  // Smooth in-page anchor scrolling with nav offset
+  // Smooth in-page anchors with nav offset
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (ev) {
       var id = a.getAttribute("href");
@@ -84,16 +83,16 @@
     });
   });
 
-  // Individual reveals (skip stagger containers — show them, animate their children)
+  // Generic reveals (skip stagger/grid containers — show them, animate their children)
   gsap.utils.toArray(".reveal").forEach(function (el) {
-    if (el.querySelector(".reveal-stagger")) { gsap.set(el, { opacity: 1, y: 0 }); return; }
+    if (el.matches(".grid3") || el.querySelector(".reveal-stagger")) { gsap.set(el, { opacity: 1, y: 0 }); return; }
     gsap.fromTo(el, { opacity: 0, y: 28 },
       { opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
         scrollTrigger: { trigger: el, start: "top 88%" } });
   });
 
-  // Staggered groups
-  gsap.utils.toArray(".steps, .cards, .gallery, .stats, .reach__regions").forEach(function (group) {
+  // Staggered groups: give cards + reach stats
+  gsap.utils.toArray(".cards, .stats").forEach(function (group) {
     var items = group.querySelectorAll(".reveal-stagger");
     if (!items.length) return;
     gsap.fromTo(items, { opacity: 0, y: 30 },
@@ -101,19 +100,18 @@
         scrollTrigger: { trigger: group, start: "top 85%" } });
   });
 
-  // Cinematic story panels: parallax image + staggered text
-  gsap.utils.toArray(".panel").forEach(function (panel) {
-    var img = panel.querySelector(".panel__media img");
-    if (img) {
-      gsap.fromTo(img, { yPercent: -9 }, { yPercent: 9, ease: "none",
-        scrollTrigger: { trigger: panel, start: "top bottom", end: "bottom top", scrub: true } });
-    }
-    var inner = panel.querySelector(".panel__inner");
-    if (inner) {
-      gsap.fromTo(inner.children, { opacity: 0, y: 42 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 0.1,
-          scrollTrigger: { trigger: panel, start: "top 62%" } });
-    }
+  // Moments gallery: stagger the framed photos
+  var grid = document.querySelector(".grid3");
+  if (grid) {
+    gsap.fromTo(grid.querySelectorAll(".frame"), { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.08,
+        scrollTrigger: { trigger: grid, start: "top 85%" } });
+  }
+
+  // Framed images: subtle "window opening" scale-in
+  gsap.utils.toArray(".frame img").forEach(function (img) {
+    gsap.fromTo(img, { scale: 1.07 }, { scale: 1, duration: 1.3, ease: "power3.out",
+      scrollTrigger: { trigger: img, start: "top 92%" } });
   });
 
   // Count-ups
@@ -131,7 +129,6 @@
     });
   });
 
-  // Recalculate trigger positions once everything (incl. lazy images) has loaded
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });
 
   initForm();
