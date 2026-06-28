@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="icon" type="image/png" href="assets/images/salik-icon-sm.png" />
-  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <link rel="stylesheet" href="css/styles.css?v=8" />
   <noscript><style>.reveal,.reveal-stagger{opacity:1 !important;transform:none !important}</style></noscript>
 
   <script type="application/ld+json">
@@ -55,32 +55,28 @@
 
   <main id="top">
 
-    <!-- HERO -->
+    <!-- HERO (cinematic full-bleed — video-ready) -->
     <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow reveal">Bismillāhir-Raḥmānir-Raḥīm · Registered Canadian Charity</p>
-          <h1 class="hero__title reveal">Give the gift of the <em>Qur'an.</em></h1>
-          <p class="hero__sub reveal">Salik Foundation prints and freely gives the Qur'an to non-Muslims, new Muslims, and seekers across Canada, the United States, and beyond — placing the Word of Allah into hands that have never held it. Every copy is a <strong>sadaqah jariyah</strong>.</p>
-          <div class="hero__cta reveal">
-            <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Give a Qur'an</a>
-            <a href="#request" class="btn btn--ghost btn--lg">Request a free Qur'an</a>
-          </div>
-          <ul class="trustbar reveal">
-            <li><span>✓</span> Zakat-eligible</li>
-            <li><span>✓</span> 100% reaches the cause</li>
-            <li><span>✓</span> Canadian tax receipts</li>
-          </ul>
+      <div class="hero__media" aria-hidden="true">
+        <!-- VIDEO-READY: when footage is ready, replace the <img> below with:
+             <video src="assets/video/hero.mp4" autoplay muted loop playsinline
+                    poster="assets/images/photos/hero-epic.jpg"></video> -->
+        <img src="assets/images/photos/hero-epic.jpg" width="2400" height="1600" alt="" fetchpriority="high" />
+        <div class="hero__scrim"></div>
+      </div>
+      <div class="container hero__inner">
+        <p class="eyebrow reveal">Bismillāhir-Raḥmānir-Raḥīm · Registered Canadian Charity</p>
+        <h1 class="hero__title reveal">Give the gift of the <em>Qur'an.</em></h1>
+        <p class="hero__sub reveal">Salik Foundation prints and freely gives the Qur'an to non-Muslims, new Muslims, and seekers across Canada, the United States, and beyond — placing the Word of Allah into hands that have never held it.</p>
+        <div class="hero__cta reveal">
+          <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Give a Qur'an</a>
+          <a href="#request" class="btn btn--glass btn--lg">Request a free Qur'an</a>
         </div>
-        <div class="hero__media reveal">
-          <figure class="frame frame--hero">
-            <img src="assets/images/photos/quran-in-hands.jpg" width="1600" height="1067" alt="Hands holding an open Qur'an." fetchpriority="high" decoding="async" />
-          </figure>
-          <div class="hero__chip">
-            <strong>100%</strong>
-            <span>of your gift reaches the cause</span>
-          </div>
-        </div>
+        <ul class="trustbar reveal">
+          <li><span>✓</span> Zakat-eligible</li>
+          <li><span>✓</span> 100% reaches the cause</li>
+          <li><span>✓</span> Canadian tax receipts</li>
+        </ul>
       </div>
     </section>
 
@@ -394,6 +390,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>
