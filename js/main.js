@@ -185,6 +185,49 @@ window.Toast = (function () {
     });
   }
 
+  /* ---------- Donate modal: Zeffy form in-page, no redirect ---------- */
+  function initDonateModal() {
+    var modal = document.getElementById("dmodal");
+    if (!modal) return;
+    var frame = document.getElementById("dmodalFrame");
+    var spinner = modal.querySelector(".dmodal__spin");
+    var lastFocus = null;
+
+    frame.addEventListener("load", function () { if (frame.src) spinner.style.display = "none"; });
+
+    function onKey(e) {
+      if (e.key === "Escape") { close(); return; }
+      if (e.key === "Tab") {
+        var f = modal.querySelectorAll("button, iframe, [href], input, select, textarea");
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+    function open() {
+      lastFocus = document.activeElement;
+      if (!frame.src) frame.src = frame.getAttribute("data-src");
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+      if (window.__lenis) window.__lenis.stop();
+      modal.querySelector(".dmodal__close").focus();
+      document.addEventListener("keydown", onKey);
+    }
+    function close() {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+      if (window.__lenis) window.__lenis.start();
+      document.removeEventListener("keydown", onKey);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    modal.querySelectorAll("[data-dmodal-close]").forEach(function (el) { el.addEventListener("click", close); });
+    /* every donate CTA opens the modal; the href stays as a no-JS fallback */
+    document.querySelectorAll('a[href*="zeffy.com"]').forEach(function (a) {
+      a.addEventListener("click", function (ev) { ev.preventDefault(); open(); });
+    });
+  }
+
   /* ---------- Fallback: no motion / no GSAP ---------- */
   if (reduce || !window.gsap) {
     showAll();
@@ -192,6 +235,7 @@ window.Toast = (function () {
     setProgress(window.scrollY);
     window.addEventListener("scroll", function () { setNav(window.scrollY); setProgress(window.scrollY); }, { passive: true });
     initForm();
+    initDonateModal();
     return;
   }
 
@@ -354,4 +398,5 @@ window.Toast = (function () {
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });
 
   initForm();
+  initDonateModal();
 })();

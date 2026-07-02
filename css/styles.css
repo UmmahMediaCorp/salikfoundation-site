@@ -358,6 +358,23 @@ html.lenis,html.lenis body{ height:auto; }
   .toast,.toast--in,.toast--out{ transition:opacity .25s; transform:none; }
 }
 
+/* ---------- DONATE MODAL ---------- */
+.dmodal{ position:fixed; inset:0; z-index:1100; display:grid; place-items:center; padding:1rem; }
+.dmodal[hidden]{ display:none; }
+.dmodal__backdrop{ position:absolute; inset:0; background:rgba(7,21,34,0.72); backdrop-filter:blur(6px); }
+.dmodal__panel{ position:relative; width:min(560px, 100%); height:min(92vh, 860px); display:flex; flex-direction:column; background:var(--cream); border-radius:var(--r-lg); overflow:hidden; box-shadow:0 60px 120px -40px rgba(0,0,0,0.6); border-top:3px solid var(--gold); animation:dmodalIn .4s var(--ease) both; }
+@keyframes dmodalIn{ from{ transform:translateY(26px); opacity:0; } to{ transform:none; opacity:1; } }
+.dmodal__head{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.9rem 1.2rem; border-bottom:1px solid var(--line); }
+.dmodal__title{ font-family:var(--font-accent); font-weight:500; font-size:var(--fs-h4); }
+.dmodal__close{ background:none; border:0; cursor:pointer; font-size:1.7rem; line-height:1; color:var(--ink-soft); padding:0.1rem 0.4rem; border-radius:8px; }
+.dmodal__close:hover{ color:var(--ink); }
+.dmodal__body{ position:relative; flex:1; min-height:0; background:#fff; }
+.dmodal__body iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+.dmodal__spin{ position:absolute; top:50%; left:50%; width:34px; height:34px; margin:-17px; border-radius:50%; border:3px solid var(--line); border-top-color:var(--gold); animation:dspin 0.9s linear infinite; }
+@keyframes dspin{ to{ transform:rotate(360deg); } }
+.dmodal__fine{ padding:0.7rem 1.2rem; font-size:var(--fs-caption); color:var(--ink-soft); text-align:center; border-top:1px solid var(--line); }
+@media (max-width:560px){ .dmodal{ padding:0; } .dmodal__panel{ width:100%; height:100%; max-height:none; border-radius:0; } }
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
   .nav__links{ display:none; }
