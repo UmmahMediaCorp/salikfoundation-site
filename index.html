@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="icon" type="image/png" href="assets/images/salik-icon-sm.png" />
-  <link rel="stylesheet" href="css/styles.css?v=10" />
+  <link rel="stylesheet" href="css/styles.css?v=11" />
   <noscript><style>.reveal,.reveal-stagger{opacity:1 !important;transform:none !important}</style></noscript>
 
   <script type="application/ld+json">
@@ -35,6 +35,9 @@
   </script>
 </head>
 <body>
+
+  <!-- scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
   <!-- NAV -->
   <header class="nav" id="nav">
@@ -66,7 +69,7 @@
       </div>
       <div class="container hero__inner">
         <p class="eyebrow reveal">Bismillāhir-Raḥmānir-Raḥīm · Registered Canadian Charity</p>
-        <h1 class="hero__title reveal">Give the gift of the <em>Qur'an.</em></h1>
+        <h1 class="hero__title" id="heroTitle">Give the gift of the <em>Qur'an.</em></h1>
         <p class="hero__sub reveal">Salik Foundation prints and freely gives the Qur'an to non-Muslims, new Muslims, and seekers across Canada, the United States, and beyond — placing the Word of Allah into hands that have never held it.</p>
         <div class="hero__cta reveal">
           <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Give a Qur'an</a>
@@ -79,6 +82,16 @@
         </ul>
       </div>
       <a href="#mission" class="hero__scroll" aria-label="Scroll to content"><span></span></a>
+    </section>
+
+    <!-- INTERLUDE — one book -->
+    <section class="interlude" aria-label="One book can change everything">
+      <div class="interlude__pin">
+        <p class="interlude__line">One book.</p>
+        <p class="interlude__line">One pair of hands.</p>
+        <p class="interlude__line">One heart, opened.</p>
+        <p class="interlude__line interlude__line--gold">A reward that never ends.</p>
+      </div>
     </section>
 
     <!-- MISSION -->
@@ -171,38 +184,46 @@
       </div>
     </section>
 
-    <!-- MOMENTS GALLERY (full framed images) -->
+    <!-- MOMENTS — horizontal filmstrip -->
     <section class="moments" id="moments">
       <div class="container">
         <header class="section-head section-head--center reveal">
           <p class="kicker kicker--center">Moments from the field</p>
           <h2 class="section-title">The Qur'an, reaching the world.</h2>
+          <p class="moments__hint" aria-hidden="true">Keep scrolling — the story moves with you →</p>
         </header>
-        <div class="grid3 reveal">
-          <figure class="frame frame--cap">
+      </div>
+      <div class="filmstrip" id="filmstrip">
+        <div class="filmstrip__track" id="filmTrack">
+          <figure class="frame frame--cap filmstrip__item">
             <img src="assets/images/photos/stand-indoor.jpg" width="1600" height="1067" alt="People collecting free Qur'ans from a Salik stand." loading="lazy" decoding="async" />
             <figcaption>Free copies, for whoever wants one</figcaption>
           </figure>
-          <figure class="frame frame--cap">
+          <figure class="frame frame--cap filmstrip__item">
             <img src="assets/images/photos/group-qurans.jpg" width="1600" height="1067" alt="A community gathered together, each holding a Qur'an." loading="lazy" decoding="async" />
             <figcaption>Whole communities, reached together</figcaption>
           </figure>
-          <figure class="frame frame--cap">
+          <figure class="frame frame--cap filmstrip__item">
             <img src="assets/images/photos/boys-qurans.jpg" width="1600" height="1067" alt="Two boys holding the Qur'ans they received." loading="lazy" decoding="async" />
             <figcaption>Joy that lasts a lifetime</figcaption>
           </figure>
-          <figure class="frame frame--cap">
+          <figure class="frame frame--cap filmstrip__item">
             <img src="assets/images/photos/community-prayer.jpg" width="1600" height="1067" alt="Worshippers gathered in prayer in a masjid." loading="lazy" decoding="async" />
             <figcaption>Where hearts gather</figcaption>
           </figure>
-          <figure class="frame frame--cap">
+          <figure class="frame frame--cap filmstrip__item">
             <img src="assets/images/photos/talk-room.jpg" width="1600" height="1067" alt="A speaker addressing a gathering in a community room." loading="lazy" decoding="async" />
             <figcaption>Every gathering, an invitation</figcaption>
           </figure>
-          <figure class="frame frame--cap">
+          <figure class="frame frame--cap filmstrip__item">
             <img src="assets/images/photos/youth-engage.jpg" width="1600" height="1067" alt="Engaging young people during a community visit." loading="lazy" decoding="async" />
             <figcaption>Reaching the next generation</figcaption>
           </figure>
+          <div class="filmstrip__cta filmstrip__item">
+            <p class="filmstrip__cta-kicker">The next moment</p>
+            <h3>could be yours to give.</h3>
+            <a href="https://www.zeffy.com/en-CA/donation-form/quran-for-all" target="_blank" rel="noopener" class="btn btn--white btn--lg">Give a Qur'an</a>
+          </div>
         </div>
       </div>
     </section>
@@ -235,6 +256,13 @@
         </div>
       </div>
     </section>
+
+    <!-- marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__inner">
+        <span>Sadaqah Jariyah · A reward that never ends · Give a Qur'an · From your hands to theirs · </span><span>Sadaqah Jariyah · A reward that never ends · Give a Qur'an · From your hands to theirs · </span>
+      </div>
+    </div>
 
     <!-- WAYS TO GIVE -->
     <section class="give" id="give">
@@ -391,6 +419,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="js/main.js?v=10"></script>
+  <script src="js/main.js?v=11"></script>
 </body>
 </html>

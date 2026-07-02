@@ -1,14 +1,12 @@
-/* Salik Foundation — editorial Qur'an-distribution site
-   Lenis smooth scroll + GSAP ScrollTrigger (reveals, framed-image scale-in, count-ups)
+/* Salik Foundation — cinematic story edition
+   Lenis smooth scroll + GSAP ScrollTrigger (hero word entrance, pinned
+   "one book" interlude, horizontal filmstrip, reveals, count-ups)
    + accessible Toast notifications + helpful form validation.
    Degrades gracefully: reduced-motion or missing libs => everything visible. */
 
 /* ============================================================
    TOAST NOTIFICATIONS — accessible, app-wide (window.Toast)
    types: success | error | warning | info
-   - ARIA live region; error/warning announce assertively (role=alert)
-   - auto-dismiss (errors persist until dismissed); pause on hover/focus
-   - manual dismiss; stack cleanly; positioned clear of nav + dock
    ============================================================ */
 window.Toast = (function () {
   "use strict";
@@ -74,10 +72,16 @@ window.Toast = (function () {
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var nav = document.getElementById("nav");
+  var progressBar = document.getElementById("progressBar");
 
   function setNav(y) {
     if (y > 12) nav.classList.add("nav--scrolled");
     else nav.classList.remove("nav--scrolled");
+  }
+  function setProgress(y) {
+    if (!progressBar) return;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (max > 0 ? Math.min(100, (y / max) * 100) : 0) + "%";
   }
   function countUpInstant(el) {
     var t = parseInt(el.getAttribute("data-to"), 10);
@@ -108,7 +112,6 @@ window.Toast = (function () {
       { name: "country", msg: "Please add your country." }
     ];
 
-    // Build inline error slots + wire "clear on input"
     fields.forEach(function (f) {
       var input = form.elements[f.name];
       if (!input) return;
@@ -166,7 +169,6 @@ window.Toast = (function () {
         return;
       }
 
-      // success — compose the email + confirm
       var lines = [
         "As-salāmu ʿalaykum — a new free Qur'an request from salikfoundation.com:", "",
         "Name:    " + val("name"), "Email:   " + val("email"), "Address: " + val("address"),
@@ -187,7 +189,8 @@ window.Toast = (function () {
   if (reduce || !window.gsap) {
     showAll();
     setNav(window.scrollY);
-    window.addEventListener("scroll", function () { setNav(window.scrollY); }, { passive: true });
+    setProgress(window.scrollY);
+    window.addEventListener("scroll", function () { setNav(window.scrollY); setProgress(window.scrollY); }, { passive: true });
     initForm();
     return;
   }
@@ -199,13 +202,18 @@ window.Toast = (function () {
   if (window.Lenis) {
     lenis = new Lenis({ duration: 1.1, smoothWheel: true });
     window.__lenis = lenis;
-    lenis.on("scroll", function () { ScrollTrigger.update(); setNav(lenis.actualScroll || window.scrollY); });
+    lenis.on("scroll", function () {
+      ScrollTrigger.update();
+      var y = lenis.actualScroll || window.scrollY;
+      setNav(y); setProgress(y);
+    });
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
   } else {
-    window.addEventListener("scroll", function () { setNav(window.scrollY); }, { passive: true });
+    window.addEventListener("scroll", function () { setNav(window.scrollY); setProgress(window.scrollY); }, { passive: true });
   }
   setNav(window.scrollY);
+  setProgress(window.scrollY);
 
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (ev) {
@@ -219,8 +227,68 @@ window.Toast = (function () {
     });
   });
 
+  /* Hero title — word-by-word entrance */
+  function splitTitle(el) {
+    var words = [];
+    function process(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (k) {
+        if (k.nodeType === 3) {
+          var parts = k.textContent.split(/\s+/).filter(Boolean);
+          if (!parts.length) return;
+          var frag = document.createDocumentFragment();
+          parts.forEach(function (w) {
+            var outer = document.createElement("span"); outer.className = "hw";
+            var inner = document.createElement("span"); inner.className = "hw__i"; inner.textContent = w;
+            outer.appendChild(inner);
+            frag.appendChild(outer);
+            frag.appendChild(document.createTextNode(" "));
+            words.push(inner);
+          });
+          node.replaceChild(frag, k);
+        } else if (k.nodeType === 1) { process(k); }
+      });
+    }
+    process(el);
+    return words;
+  }
+  var titleEl = document.getElementById("heroTitle");
+  if (titleEl) {
+    var words = splitTitle(titleEl);
+    gsap.fromTo(words, { yPercent: 112 }, { yPercent: 0, duration: 1.05, ease: "power4.out", stagger: 0.075, delay: 0.2 });
+  }
+
+  /* "One book" interlude — pinned, scrubbed beats */
+  var lines = gsap.utils.toArray(".interlude__line");
+  if (lines.length) {
+    gsap.set(lines, { opacity: 0, y: 44 });
+    var itl = gsap.timeline({
+      scrollTrigger: { trigger: ".interlude", start: "top top", end: "+=200%", scrub: 0.6, pin: true, anticipatePin: 1 }
+    });
+    lines.forEach(function (l, i) {
+      itl.to(l, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, i * 1.15);
+      if (i < lines.length - 1) itl.to(l, { opacity: 0.22, duration: 0.7 }, i * 1.15 + 1.0);
+    });
+    itl.to({}, { duration: 0.6 }); /* hold on the final gold line */
+  }
+
+  /* Horizontal filmstrip — pinned scroll-driven strip (desktop only) */
+  var mm = gsap.matchMedia();
+  mm.add("(min-width: 901px)", function () {
+    var strip = document.getElementById("filmstrip");
+    var track = document.getElementById("filmTrack");
+    if (!strip || !track) return;
+    strip.classList.add("filmstrip--pinned");
+    strip.scrollLeft = 0;
+    var amt = function () { return Math.max(0, track.scrollWidth - window.innerWidth + 64); };
+    gsap.to(track, {
+      x: function () { return -amt(); }, ease: "none",
+      scrollTrigger: { trigger: ".moments", start: "top top", end: function () { return "+=" + amt(); }, scrub: 0.5, pin: true, anticipatePin: 1, invalidateOnRefresh: true }
+    });
+    return function () { strip.classList.remove("filmstrip--pinned"); gsap.set(track, { x: 0 }); };
+  });
+
   gsap.utils.toArray(".reveal").forEach(function (el) {
-    if (el.matches(".grid3") || el.querySelector(".reveal-stagger")) { gsap.set(el, { opacity: 1, y: 0 }); return; }
+    if (el.querySelector(".reveal-stagger")) { gsap.set(el, { opacity: 1, y: 0 }); return; }
     gsap.fromTo(el, { opacity: 0, y: 28 },
       { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } });
   });
@@ -232,13 +300,9 @@ window.Toast = (function () {
       { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.08, scrollTrigger: { trigger: group, start: "top 85%" } });
   });
 
-  var grid = document.querySelector(".grid3");
-  if (grid) {
-    gsap.fromTo(grid.querySelectorAll(".frame"), { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.08, scrollTrigger: { trigger: grid, start: "top 85%" } });
-  }
-
+  /* framed-image scale-in (skip filmstrip — it has its own motion) */
   gsap.utils.toArray(".frame img").forEach(function (img) {
+    if (img.closest(".filmstrip")) return;
     gsap.fromTo(img, { scale: 1.07 }, { scale: 1, duration: 1.3, ease: "power3.out", scrollTrigger: { trigger: img, start: "top 92%" } });
   });
 
@@ -256,7 +320,7 @@ window.Toast = (function () {
     });
   });
 
-  // Smart mobile donate dock: hide while reading down, reveal on scroll-up, hide in donate sections.
+  /* Smart mobile donate dock */
   var dock = document.querySelector(".dock-cta");
   if (dock) {
     document.body.classList.add("smart-dock");
